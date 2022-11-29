@@ -22,6 +22,12 @@ class CpnController {
     const rst =  await service.getCpns(cpnName,label,limit,offset)
     ctx.body = rst
   }
+
+  async getCpnById(ctx,next){
+    const { cpnId } = ctx.request.params
+    const rst =  await service.getCpnById(cpnId)
+    ctx.body = rst
+  }
 }
 
 module.exports =  new CpnController()
