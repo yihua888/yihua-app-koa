@@ -7,10 +7,10 @@ class caseService {
     return result
   }
 
-  async addCodes (attrs, id) {
+  async addCodes (codes, id) {
     const sqlArr = []
     const arr = []
-    attrs.forEach(item => {
+    codes.forEach(item => {
       arr.push('(?,?,?)')
       sqlArr.push(...[item.filename, item.url, id])
     })
