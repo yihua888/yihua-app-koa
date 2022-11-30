@@ -18,6 +18,7 @@ class CpnService {
     const statement = `insert into tb_cpn_attr (attr_name,info,required,default_value,attr_type,cpn_id) values${arr.join(',')};`
     const [result] = await connection.execute(statement,[...sqlArr])
     return result
+    
   }
 
   async addMethod(methods,id){
@@ -81,19 +82,19 @@ class CpnService {
     c.id id, c.cpn_name cpnName, c.label label, c.blog blog, c.info info, c.cpn_url cpnUrl,
 
     (SELECT IF(COUNT(ca.id),JSON_ARRAYAGG(
-      JSON_OBJECT('name', ca.attr_name, 'info', ca.info , 'required', ca.required, 'defaultValue',ca.default_value,'type', ca.attr_type)
+      JSON_OBJECT('attrName', ca.attr_name, 'info', ca.info , 'required', ca.required, 'defaultValue',ca.default_value,'attrType', ca.attr_type)
     ),NULL) FROM tb_cpn_attr ca WHERE ca.cpn_id = c.id) attrs,
 
     (SELECT IF(COUNT(cc.id),JSON_ARRAYAGG(
-      JSON_OBJECT('fileName',cc.file_name , 'url' , cc.url)
+      JSON_OBJECT('name',cc.file_name , 'url' , cc.url)
     ), NULL) FROM tb_cpn_codes cc WHERE cc.cpn_id = c.id) codes,
 
     (SELECT IF(COUNT(cm.id),JSON_ARRAYAGG(
-      JSON_OBJECT('name',cm.method_name , 'info' , cm.info )
+      JSON_OBJECT('methodName',cm.method_name , 'info' , cm.info )
     ), NULL) FROM tb_cpn_methods cm WHERE cm.cpn_id = c.id) methods,
 
     (SELECT IF(COUNT(cs.id),JSON_ARRAYAGG(
-      JSON_OBJECT('name',cs.slot_name , 'info' , cs.info , 'arguments_info', arguments_info)
+      JSON_OBJECT('slotName',cs.slot_name , 'info' , cs.info , 'argumentsInfo', arguments_info)
     ), NULL) FROM tb_cpn_slots cs WHERE cs.cpn_id = c.id) slots
 
     FROM tb_cpn c
