@@ -2,19 +2,26 @@ const service = require('../service/cpn.service')
 const createID = require('../utils/createId')
 class CpnController {
   async create(ctx,next){
-    const {cpnName, label, info, blog, cpnUrl , attrs , methods , slots , codes} = ctx.request.body
-    const id = createID()
-    // 新增一条组件基本信息
-    await service.create({cpnName, label, info, blog, cpnUrl ,id})
-    // 增加attr
-    await service.addAttr(attrs,id)
-    // 增加methods
-    await service.addMethod(methods,id)
-    // 增加插槽
-    await service.addSlot(slots,id)
-    // 增加code
-    await service.addCodes(codes,id)
-    ctx.body = '添加成功'
+    try {
+      const {cpnName, label, info, blog, cpnUrl , attrs , methods , slots , codes} = ctx.request.body
+      console.log(ctx.request.body);
+      ctx.body = '添加成功'
+      const id = createID()
+      // 新增一条组件基本信息
+      await service.create({cpnName, label, info, blog, cpnUrl ,id})
+      // 增加attr
+      attrs && attrs.length && await service.addAttr(attrs,id)
+      // 增加methods
+      methods && methods.length && await service.addMethod(methods,id)
+      // 增加插槽
+      slots && slots.length && await service.addSlot(slots,id)
+      // 增加code
+      codes && codes.length &&  await service.addCodes(codes,id)
+      ctx.body = '添加成功'
+    } catch (error) {
+      ctx.app.emit('error', error, ctx)
+    }
+  
   }
 
   async getCpns(ctx,next){

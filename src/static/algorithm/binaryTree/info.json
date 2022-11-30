@@ -1,0 +1,186 @@
+{
+  "type": "binaryTree",
+  "name": "二叉树",
+  "children": [
+    {
+      "name": "zigzagLevelOrder",
+      "label": "二叉树的锯齿形层次遍历",
+      "codeUrl": [
+        {
+          "name": "zigzagLevelOrder.js",
+          "url": "/algorithm/binaryTree/zigzagLevelOrder.js"
+        },
+        {
+          "name": "index.js",
+          "url": "/algorithm/binaryTree/index.js"
+        }
+      ],
+      "info": "二叉树的锯齿形层次遍历"
+    },
+    {
+      "name": "levelOrder",
+      "label": "层次遍历",
+      "codeUrl": [
+        {
+          "name": "levelOrder.js",
+          "url": "/algorithm/binaryTree/levelOrder.js"
+        },
+        {
+          "name": "index.js",
+          "url": "/algorithm/binaryTree/index.js"
+        }
+      ],
+      "info": "层次遍历"
+    },
+    {
+      "name": "maxDepth",
+      "label": "树高",
+      "codeUrl": [
+        {
+          "name": "maxDepth.js",
+          "url": "/algorithm/binaryTree/maxDepth.js"
+        },
+        {
+          "name": "index.js",
+          "url": "/algorithm/binaryTree/index.js"
+        }
+      ],
+      "info": "树高"
+    },
+    {
+      "name": "kthSmallest",
+      "label": "二叉搜索树中第K小的元素",
+      "codeUrl": [
+        {
+          "name": "kthSmallest.js",
+          "url": "/algorithm/binaryTree/kthSmallest.js"
+        },
+        {
+          "name": "index.js",
+          "url": "/algorithm/binaryTree/index.js"
+        }
+      ],
+      "info": "二叉搜索树中第K小的元素"
+    },
+    {
+      "name": "lowestCommonAncestor",
+      "label": "二叉树最近公共祖先",
+      "codeUrl": [
+        {
+          "name": "lowestCommonAncestor.js",
+          "url": "/algorithm/binaryTree/lowestCommonAncestor.js"
+        },
+        {
+          "name": "index.js",
+          "url": "/algorithm/binaryTree/index.js"
+        }
+      ],
+      "info": "二叉树最近公共祖先"
+    },
+    {
+      "name": "diameterOfBinaryTree",
+      "label": "给定一棵二叉树，你需要计算它的直径长度。",
+      "codeUrl": [
+        {
+          "name": "diameterOfBinaryTree.js",
+          "url": "/algorithm/binaryTree/diameterOfBinaryTree.js"
+        },
+        {
+          "name": "index.js",
+          "url": "/algorithm/binaryTree/index.js"
+        }
+      ],
+      "info": "给定一棵二叉树，你需要计算它的直径长度。"
+    },
+    {
+        "name": "sumNumbers",
+        "label": "求根到叶子节点数字之和",
+        "codeUrl": [
+          {
+            "name": "sumNumbers.js",
+            "url": "/algorithm/binaryTree/sumNumbers.js"
+          },
+          {
+            "name": "index.js",
+            "url": "/algorithm/binaryTree/index.js"
+          }
+        ],
+        "info": "给定一个二叉树，它的每个结点都存放一个 0-9 的数字，每条从根到叶子节点的路径都代表一个数字。例如，从根到叶子节点路径 1->2->3 代表数字 123。计算从根到叶子节点生成的所有数字之和。说明: 叶子节点是指没有子节点的节点。"
+      },
+      {
+        "name": "mirrorTree",
+        "label": "交换树的左右节点",
+        "codeUrl": [
+          {
+            "name": "mirrorTree.js",
+            "url": "/algorithm/binaryTree/mirrorTree.js"
+          },
+          {
+            "name": "index.js",
+            "url": "/algorithm/binaryTree/index.js"
+          }
+        ],
+        "info": "交换树的左右节点"
+      },
+      {
+        "name": "isBalanced",
+        "label": "是否平衡二叉树",
+        "codeUrl": [
+          {
+            "name": "isBalanced.js",
+            "url": "/algorithm/binaryTree/isBalanced.js"
+          },
+          {
+            "name": "index.js",
+            "url": "/algorithm/binaryTree/index.js"
+          }
+        ],
+        "info": "是否平衡二叉树"
+      },
+      {
+        "name": "pathSum",
+        "label": "路径和",
+        "codeUrl": [
+          {
+            "name": "pathSum.js",
+            "url": "/algorithm/binaryTree/pathSum.js"
+          },
+          {
+            "name": "index.js",
+            "url": "/algorithm/binaryTree/index.js"
+          }
+        ],
+        "info": "给定一个二叉树，它的每个结点都存放着一个整数值。找出路径和等于给定数值的路径总数。路径不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的"
+      },
+      {
+        "name": "mergeTrees",
+        "label": "叠加树",
+        "codeUrl": [
+          {
+            "name": "mergeTrees.js",
+            "url": "/algorithm/binaryTree/mergeTrees.js"
+          },
+          {
+            "name": "index.js",
+            "url": "/algorithm/binaryTree/index.js"
+          }
+        ],
+        "info": "叠加树"
+      },
+      {
+        "name": "isSubtree",
+        "label": "是否子树",
+        "codeUrl": [
+          {
+            "name": "isSubtree.js",
+            "url": "/algorithm/binaryTree/isSubtree.js"
+          },
+          {
+            "name": "index.js",
+            "url": "/algorithm/binaryTree/index.js"
+          }
+        ],
+        "info": "是否子树"
+      }
+  ]
+}

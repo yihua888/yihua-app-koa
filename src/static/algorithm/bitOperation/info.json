@@ -1,0 +1,84 @@
+{
+    "type": "bitOperation",
+    "name": "位运算",
+    "children": [
+      {
+        "name": "hammingWeight",
+        "label": "二进制中1的个数",
+        "codeUrl": [
+          {
+            "name": "hammingWeight.js",
+            "url": "/algorithm/bitOperation/hammingWeight.js"
+          }
+        ],
+        "info": "二进制中1的个数"
+      },
+      {
+        "name": "singleNumber",
+        "label": "出现次数",
+        "codeUrl": [
+          {
+            "name": "singleNumber.js",
+            "url": "/algorithm/bitOperation/singleNumber.js"
+          }
+        ],
+        "info": "给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素"
+      },
+      {
+        "name": "countBits",
+        "label": "比特位计数",
+        "codeUrl": [
+          {
+            "name": "countBits.js",
+            "url": "/algorithm/bitOperation/countBits.js"
+          }
+        ],
+        "info": "给定一个非负整数 num。对于 0 ≤ i ≤ num 范围中的每个数字 i ，计算其二进制数中的 1 的数目并将它们作为数组返回"
+      },
+      {
+        "name": "threeSum",
+        "label": "三数之和",
+        "codeUrl": [
+          {
+            "name": "threeSum.js",
+            "url": "/algorithm/bitOperation/threeSum.js"
+          }
+        ],
+        "info": "给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。注意：答案中不可以包含重复的三元组。"
+      },
+      {
+        "name": "maxArea",
+        "label": "盛最多水的容器",
+        "codeUrl": [
+          {
+            "name": "maxArea.js",
+            "url": "/algorithm/bitOperation/maxArea.js"
+          }
+        ],
+        "info": "盛最多水的容器"
+      },
+      {
+        "name": "trap",
+        "label": "接雨水",
+        "codeUrl": [
+          {
+            "name": "trap.js",
+            "url": "/algorithm/bitOperation/trap.js"
+          }
+        ],
+        "info": "接雨水"
+      },
+      {
+        "name": "minSubArrayLen",
+        "label": "长度最小的子数组",
+        "codeUrl": [
+          {
+            "name": "minSubArrayLen.js",
+            "url": "/algorithm/bitOperation/minSubArrayLen.js"
+          }
+        ],
+        "info": "给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的连续子数组，并返回其长度。如果不存在符合条件的连续子数组，返回 0。"
+      }
+    ]
+  }
+  

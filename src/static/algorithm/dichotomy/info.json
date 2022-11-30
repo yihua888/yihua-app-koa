@@ -1,0 +1,74 @@
+{
+  "type": "dichotomy",
+  "name": "二分",
+  "children": [
+    {
+      "name": "minNumberInRotateArray",
+      "label": "数组旋转",
+      "codeUrl": [
+        {
+          "name": "minNumberInRotateArray.js",
+          "url": "/algorithm/dichotomy/minNumberInRotateArray.js"
+        }
+      ],
+      "info": "输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素"
+    },
+    {
+      "name": "GetNumberOfK",
+      "label": "统计一个数字在排序数组中出现的次数",
+      "codeUrl": [
+        {
+          "name": "GetNumberOfK.js",
+          "url": "/algorithm/dichotomy/GetNumberOfK.js"
+        }
+      ],
+      "info": "统计一个数字在排序数组中出现的次数"
+    },
+    {
+      "name": "missingNumber",
+      "label": "0～n-1中缺失的数字",
+      "codeUrl": [
+        {
+          "name": "missingNumber.js",
+          "url": "/algorithm/dichotomy/missingNumber.js"
+        }
+      ],
+      "info": "0～n-1中缺失的数字"
+    },
+
+    {
+      "name": "lengthOfLIS",
+      "label": "最长上升子序列",
+      "codeUrl": [
+        {
+          "name": "lengthOfLIS.js",
+          "url": "/algorithm/dichotomy/lengthOfLIS.js"
+        }
+      ],
+      "info": "最长上升子序列。1. 维护一个子序列存放当前的上升序列 2. 将当前数与子序列最大值比较，如果比最大值大直接加入队尾，如果更小则找一个合适的位置替换当前位置的元素输入：nums = [10,9,2,5,3,7,101,18] 输出：4 解释：最长递增子序列是 [2,3,7,101]，因此长度为 4 。"
+    },
+
+    {
+      "name": "searchMatrix",
+      "label": "查找数",
+      "codeUrl": [
+        {
+          "name": "searchMatrix.js",
+          "url": "/algorithm/dichotomy/searchMatrix.js"
+        }
+      ],
+      "info": "编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：每行的元素从左到右升序排列。 每列的元素从上到下升序排列。"
+    },
+    {
+      "name": "restoreIpAddresses",
+      "label": "复原IP地址",
+      "codeUrl": [
+        {
+          "name": "restoreIpAddresses.js",
+          "url": "/algorithm/dichotomy/restoreIpAddresses.js"
+        }
+      ],
+      "info": "给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。有效的 IP 地址正好由四个整数（每个整数位于 0 到 255 之间组成），整数之间用 '.' 分隔。"
+    }
+  ]
+}

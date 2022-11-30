@@ -1,0 +1,73 @@
+{
+    "type": "backtracking",
+    "name": "回溯",
+    "children": [
+      {
+        "name": "subsets",
+        "label": "幂集",
+        "codeUrl": [
+          {
+            "name": "subsets.js",
+            "url": "/algorithm/backtracking/subsets.js"
+          }
+        ],
+        "info":"给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。"
+      },
+      {
+        "name": "permute",
+        "label": "全排列",
+        "codeUrl": [
+          {
+            "name": "permute.js",
+            "url": "/algorithm/backtracking/permute.js"
+          }
+        ],
+        "info":"给定一个没有重复数字的序列，返回其所有可能的全排列。"
+      },
+      {
+        "name": "permuteRepeat",
+        "label": "全排列",
+        "codeUrl": [
+          {
+            "name": "permuteRepeat.js",
+            "url": "/algorithm/backtracking/permuteRepeat.js"
+          }
+        ],
+        "info":"给定一个含重复数字的数组 nums ，返回其所有可能的全排列。你可以按任意顺序返回答案。"
+      },
+      {
+        "name": "permutations",
+        "label": "全排列",
+        "codeUrl": [
+          {
+            "name": "permutations.js",
+            "url": "/algorithm/backtracking/permutations.js"
+          }
+        ],
+        "info":"给定一个 没有重复 字符串的序列，返回其所有可能的全排列。"
+      },
+      {
+        "name": "partition",
+        "label": "回文字符串",
+        "codeUrl": [
+          {
+            "name": "partition.js",
+            "url": "/algorithm/backtracking/partition.js"
+          }
+        ],
+        "info":"给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。"
+      },
+      {
+        "name": "exist",
+        "label": "回文字符串",
+        "codeUrl": [
+          {
+            "name": "exist.js",
+            "url": "/algorithm/backtracking/exist.js"
+          }
+        ],
+        "info":"给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；输入：s = 'aab'。输出：[['a','a','b'],['aa', 'b']]"
+      }
+    ]
+  }
+  

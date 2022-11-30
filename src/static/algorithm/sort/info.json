@@ -1,0 +1,115 @@
+{
+  "type": "sort",
+  "name": "排序",
+  "children": [
+    {
+      "name": "sortList",
+      "label": "排序链表",
+      "codeUrl": [
+        {
+          "name": "sortList.js",
+          "url": "/algorithm/sort/algorithm/sortList.js"
+        }
+      ],
+      "info": "逆序列"
+    },{
+      "name": "InversePairs",
+      "label": "逆序列",
+      "codeUrl": [
+        {
+          "name": "InversePairs.js",
+          "url": "/algorithm/sort/InversePairs.js"
+        }
+      ],
+      "info": "逆序列"
+    },
+    {
+      "name": "radixSort",
+      "label": "桶排序",
+      "codeUrl": [
+        {
+          "name": "radixSort.js",
+          "url": "/algorithm/sort/radixSort.js"
+        }
+      ],
+      "info": "桶排序"
+    },
+    {
+      "name": "MergeSort",
+      "label": "归并排序",
+      "codeUrl": [
+        {
+          "name": "MergeSort.js",
+          "url": "/algorithm/sort/MergeSort.js"
+        }
+      ],
+      "info": "归并排序"
+    },
+    {
+      "name": "adjustMaxHeap",
+      "label": "堆排序",
+      "codeUrl": [
+        {
+          "name": "adjustMaxHeap.js",
+          "url": "/algorithm/sort/adjustMaxHeap.js"
+        }
+      ],
+      "info": "堆排序"
+    },
+    {
+      "name": "selectSort",
+      "label": "选择排序",
+      "codeUrl": [
+        {
+          "name": "selectSort.js",
+          "url": "/algorithm/sort/selectSort.js"
+        }
+      ],
+      "info": "选择排序"
+    },
+    {
+      "name": "hillSort",
+      "label": "希尔排序",
+      "codeUrl": [
+        {
+          "name": "hillSort.js",
+          "url": "/algorithm/sort/hillSort.js"
+        }
+      ],
+      "info": "希尔排序"
+    },
+    {
+      "name": "insertSort",
+      "label": "插入排序",
+      "codeUrl": [
+        {
+          "name": "insertSort.js",
+          "url": "/algorithm/sort/insertSort.js"
+        }
+      ],
+      "info": "插入排序"
+    },
+    {
+      "name": "quickSort",
+      "label": "快排",
+      "codeUrl": [
+        {
+          "name": "quickSort.js",
+          "url": "/algorithm/sort/quickSort.js"
+        }
+      ],
+      "info": "快排"
+    },
+    {
+      "name": "bubbleSort",
+      "label": "冒泡",
+      "codeUrl": [
+        {
+          "name": "bubbleSort.js",
+          "url": "/algorithm/sort/bubbleSort.js"
+        }
+      ],
+      "info": "冒泡"
+    }
+  ]
+}

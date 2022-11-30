@@ -76,55 +76,31 @@ class CpnService {
   }
 
   async getCpnById(cpnId){
-    // 去重参考下面
-    //  SELECT 
-    //     m.id id, m.content content, m.createAt createTime, m.updateAt updateTime,
-    //     JSON_OBJECT('id', u.id, 'name', u.name, 'avatarUrl', u.avatar_url) author,
-    //     IF(COUNT(l.id),JSON_ARRAYAGG(
-    //       JSON_OBJECT('id', l.id, 'name', l.name)
-    //     ),NULL) labels,
-    //     (SELECT IF(COUNT(c.id),JSON_ARRAYAGG(
-    //       JSON_OBJECT('id', c.id, 'content', c.content, 'commentId', c.comment_id, 'createTime', c.createAt,
-    //                   'user', JSON_OBJECT('id', cu.id, 'name', cu.name, 'avatarUrl', cu.avatar_url))
-    //     ),NULL) FROM comment c LEFT JOIN user cu ON c.user_id = cu.id WHERE m.id = c.moment_id) comments,
-    //     (SELECT JSON_ARRAYAGG(CONCAT('http://localhost:8000/moment/images/', file.filename)) 
-    //     FROM file WHERE m.id = file.moment_id) images
-    //   FROM moment m
-    //   LEFT JOIN user u ON m.user_id = u.id
-    //   LEFT JOIN moment_label ml ON m.id = ml.moment_id
-    //   LEFT JOIN label l ON ml.label_id = l.id
-    //   WHERE m.id = ?
-    //   GROUP BY m.id;  
     const statement = `
     SELECT 
     c.id id, c.cpn_name cpnName, c.label label, c.blog blog, c.info info, c.cpn_url cpnUrl,
-    IF( 
-    ca.id IS NOT NULL,
-    JSON_OBJECT('name', ca.attr_name, 'info', ca.info , 'required', ca.required, 'defaultValue',ca.default_value,'type', ca.attr_type),
-    NULL
-    ) attr ,
-    IF(
-    cc.id IS NOT NULL,
-    JSON_ARRAYAGG(JSON_OBJECT('fileName',cc.file_name , 'url' , cc.url)),
-    NULL
-    ) codes,
-    IF(cm.id,
-    JSON_ARRAYAGG(JSON_OBJECT('name',cm.method_name , 'info' , cm.info )),
-    NULL
-    ) methods,
-    IF( cs.id,
-    JSON_ARRAYAGG(JSON_OBJECT('name',cs.slot_name , 'info' , cs.info , 'arguments_info', arguments_info)),
-    NULL
-    ) slots
+
+    (SELECT IF(COUNT(ca.id),JSON_ARRAYAGG(
+      JSON_OBJECT('name', ca.attr_name, 'info', ca.info , 'required', ca.required, 'defaultValue',ca.default_value,'type', ca.attr_type)
+    ),NULL) FROM tb_cpn_attr ca WHERE ca.cpn_id = c.id) attrs,
+
+    (SELECT IF(COUNT(cc.id),JSON_ARRAYAGG(
+      JSON_OBJECT('fileName',cc.file_name , 'url' , cc.url)
+    ), NULL) FROM tb_cpn_codes cc WHERE cc.cpn_id = c.id) codes,
+
+    (SELECT IF(COUNT(cm.id),JSON_ARRAYAGG(
+      JSON_OBJECT('name',cm.method_name , 'info' , cm.info )
+    ), NULL) FROM tb_cpn_methods cm WHERE cm.cpn_id = c.id) methods,
+
+    (SELECT IF(COUNT(cs.id),JSON_ARRAYAGG(
+      JSON_OBJECT('name',cs.slot_name , 'info' , cs.info , 'arguments_info', arguments_info)
+    ), NULL) FROM tb_cpn_slots cs WHERE cs.cpn_id = c.id) slots
+
     FROM tb_cpn c
-    LEFT JOIN tb_cpn_attr ca ON ca.cpn_id = c.id
-    LEFT JOIN tb_cpn_codes cc ON cc.cpn_id = c.id
-    LEFT JOIN tb_cpn_methods cm ON cm.cpn_id = c.id
-    LEFT JOIN tb_cpn_slots cs ON cs.cpn_id = c.id
     WHERE c.id = ?;
     `
-    const rst = connection.execute(statement,[cpnId])
-    return rst
+    const [rst] = await connection.execute(statement,[cpnId])
+    return rst[0]
   }
 }
 

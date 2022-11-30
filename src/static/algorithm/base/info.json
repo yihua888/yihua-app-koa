@@ -1,0 +1,39 @@
+{
+  "type": "base",
+  "name": "基础",
+  "children": [
+    {
+      "name": "al",
+      "label": "阿里面试",
+      "codeUrl": [
+        {
+          "name": "al.js",
+          "url": "/algorithm/base/al.js"
+        }
+      ],
+      "info": "阿里面试"
+    },
+    {
+      "name": "hw",
+      "label": "华为面试",
+      "codeUrl": [
+        {
+          "name": "hw.js",
+          "url": "/algorithm/base/hw.js"
+        }
+      ],
+      "info": "华为面试"
+    },
+    {
+      "name": "base",
+      "label": "基本题",
+      "codeUrl": [
+        {
+          "name": "index.js",
+          "url": "/algorithm/base/index.js"
+        }
+      ],
+      "info": "普通题"
+    }
+  ]
+}

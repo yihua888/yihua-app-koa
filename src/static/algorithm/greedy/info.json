@@ -1,0 +1,39 @@
+{
+  "type": "greedy",
+  "name": "贪心",
+  "children": [
+    {
+      "name": "cuttingRope",
+      "label": "剪绳子",
+      "codeUrl": [
+        {
+          "name": "cuttingRope.js",
+          "url": "/algorithm/greedy/cuttingRope.js"
+        }
+      ],
+      "info": "给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m] 。请问 k[0]k[1]...*k[m] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18"
+    },
+    {
+      "name": "canJump",
+      "label": "跳跃游戏",
+      "codeUrl": [
+        {
+          "name": "canJump.js",
+          "url": "/algorithm/greedy/canJump.js"
+        }
+      ],
+      "info":"给定一个非负整数数组，你最初位于数组的第一个位置。数组中的每个元素代表你在该位置可以跳跃的最大长度。判断你是否能够到达最后一个位置。"
+    },
+    {
+      "name": "canCompleteCircuit",
+      "label": "加油",
+      "codeUrl": [
+        {
+          "name": "canCompleteCircuit.js",
+          "url": "/algorithm/greedy/canCompleteCircuit.js"
+        }
+      ],
+      "info":"在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。你有一辆油箱容量无限的的汽车，从第 i 个加油站开往第 i+1 个加油站需要消耗汽油 cost[i] 升。你从其中的一个加油站出发，开始时油箱为空。如果你可以绕环路行驶一周，则返回出发时加油站的编号，否则返回 -11. gas - cost >= 0才能绕场一周，以此思想判断能否行驶一周2. 从正确初始位置开始，拥有的汽油总是比消耗的汽油多,以此思想寻找初始位置"
+    }
+  ]
+}
