@@ -4,7 +4,6 @@ const createID = require('../utils/createId')
 class caseController {
   async create (ctx, next) {
     const { utilName, utilCode, codes } = ctx.request.body
-    console.log(utilName, utilCode, codes);
     const id = createID()
     await service.create(utilName, utilCode, id)
     if (codes && codes.length)

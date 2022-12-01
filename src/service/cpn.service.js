@@ -70,7 +70,7 @@ class CpnService {
     const [ data ] = await connection.execute(statement,[...argumentsList,offset,limit]);
     return {
       data,
-      total : rst[0].total
+      total : rst[0]?.total ?? 0
     }
 
   }

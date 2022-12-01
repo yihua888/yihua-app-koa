@@ -40,7 +40,7 @@ class AlgorithmService {
     async getAlgorithms (algorithmName, algorithmType, limit, offset) {
         let condition = ''
         const argumentsList = []
-        algorithmName && (condition += ` and algorithm_name like concat('%', ?, '%')`) && argumentsList.push(algorithmName);
+        algorithmName && (condition += ` and a.label like concat('%', ?, '%')`) && argumentsList.push(algorithmName);
         if (algorithmType) {
             condition += ` and a.type_id=? `
             argumentsList.push(algorithmType);
@@ -53,7 +53,7 @@ class AlgorithmService {
         const [data] = await connection.execute(statement, [...argumentsList, offset, limit])
         return {
             data,
-            total: rst[0].total
+            total: rst[0]?.total ?? 0
         }
     }
 
