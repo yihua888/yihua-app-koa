@@ -1,14 +1,15 @@
 const Router = require('koa-router')
 
-const { create, getAlgorithm, getCaseById} = require('../controller/algorithm.controller')
+const { create, getAlgorithms, getAlgorithmById, createAlgorithmType, getAlgorithmTypeByName, getAlgorithmTypes} = require('../controller/algorithm.controller')
 const { verifyAuth } = require('../middleware/auth.middleware')
 
 const algorithmRouter = new Router({prefix: '/algorithm'})
-// 注册组件
+
+algorithmRouter.post('/type', verifyAuth, createAlgorithmType)
+algorithmRouter.get('/type', getAlgorithmTypes)
+algorithmRouter.get('/type/:name',  getAlgorithmTypeByName)
 algorithmRouter.post('/' , verifyAuth , create)
-// 获取组件
-algorithmRouter.get('/' , getAlgorithm)
-// 获取单个组件
-algorithmRouter.get('/:algorithmId' , getCaseById)
+algorithmRouter.get('/' , getAlgorithms)
+algorithmRouter.get('/:algorithmId' , getAlgorithmById)
 
 module.exports = algorithmRouter

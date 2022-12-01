@@ -21,22 +21,20 @@ class utilService {
 
   async getUtils (utilName, limit, offset) {
     const argumentsList = []
-    let statement = `select  u.id id, util_name utilName,util_code utilCode  from tb_util u where 1=1`;
-    utilName && (statement += ` and util_name like concat('%', ?, '%')`) && argumentsList.push(utilName);
-    argumentsList.push(offset, limit)
-    statement += ` LIMIT ? , ?;`
-
+    let condition = ''
+    utilName && (condition += ` and util_name like concat('%', ?, '%')`) && argumentsList.push(utilName);
     // 获取总数
-    const statement1 = `select count(*) total from tb_util`
-    const [rst] = await connection.execute(statement1)
-    const [data] = await connection.execute(statement, [...argumentsList]);
+    let statement = `select  u.id id, util_name utilName,util_code utilCode  from tb_util u where 1=1` + condition + ` LIMIT ? , ?;`;
+    const statement1 = `select count(*) total from tb_util where 1=1` + condition
+    const [rst] = await connection.execute(statement1, [...argumentsList])
+    const [data] = await connection.execute(statement, [...argumentsList, offset, limit]);
     return {
       data,
       total: rst[0].total
     }
   }
 
-  async getUtilById(id){
+  async getUtilById (id) {
     const statement = `
     SELECT 
     u.id id, util_name utilName,util_code utilCode ,
@@ -46,7 +44,7 @@ class utilService {
     FROM tb_util u
     WHERE u.id = ?;
     `
-    const [rst] = await connection.execute(statement,[id])
+    const [rst] = await connection.execute(statement, [id])
     return rst[0]
   }
 

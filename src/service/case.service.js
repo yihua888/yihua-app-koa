@@ -21,23 +21,21 @@ class caseService {
 
   async getCases (caseType, caseName, limit, offset) {
     const argumentsList = []
-    let statement = `select  c.id id, c.case_name caseName, c.case_type caseType, c.case_code caseCode from tb_case c where 1=1`;
-    caseName && (statement += ` and case_name like concat('%', ?, '%')`) && argumentsList.push(caseName);
-    caseType && (statement += ` and case_type like concat('%', ?, '%')`) && argumentsList.push(caseType);
-    argumentsList.push(offset, limit)
-    statement += ` LIMIT ? , ?;`
-
+    let condition = ''
+    caseName && (condition += ` and case_name like concat('%', ?, '%')`) && argumentsList.push(caseName);
+    caseType && (condition += ` and case_type like concat('%', ?, '%')`) && argumentsList.push(caseType);
     // 获取总数
-    const statement1 = `select count(*) total from tb_case`
-    const [rst] = await connection.execute(statement1)
-    const [data] = await connection.execute(statement, [...argumentsList]);
+    let statement = `select  c.id id, c.case_name caseName, c.case_type caseType, c.case_code caseCode from tb_case c where 1=1` + condition + ` LIMIT ? , ?;`;
+    let statement1 = `select count(*) total from tb_case where 1=1` + condition;
+    const [rst] = await connection.execute(statement1, [...argumentsList])
+    const [data] = await connection.execute(statement, [...argumentsList , offset, limit]);
     return {
       data,
       total: rst[0].total
     }
   }
 
-  async getCaseById(id){
+  async getCaseById (id) {
     const statement = `
     SELECT 
     c.id id, c.case_name caseName, c.case_type caseType, c.case_code caseCode,
@@ -47,7 +45,7 @@ class caseService {
     FROM tb_case c
     WHERE c.id = ?;
     `
-    const [rst] = await connection.execute(statement,[id])
+    const [rst] = await connection.execute(statement, [id])
     return rst[0]
   }
 

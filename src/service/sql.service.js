@@ -9,15 +9,13 @@ class SqlService {
 
     async getSqls(info, limit, offset){
         const argumentsList = []
-        let statement =  `select  p.id id,p.codeUrl codeUrl,p.info info from tb_sql p where 1=1`;
-        info && (statement += ` and info like concat('%', ?, '%')`) && argumentsList.push(info);
-        argumentsList.push(offset,limit)
-        statement += ` LIMIT ? , ?;`
-        
+        let condition = ''
+        info && (condition += ` and info like concat('%', ?, '%')`) && argumentsList.push(info);
         // 获取总数
-        const statement1 = `select count(*) total from tb_sql`
-        const [rst] = await connection.execute(statement1)
-        const [ data ] = await connection.execute(statement,[...argumentsList]);
+        const statement =  `select  p.id id,p.codeUrl codeUrl,p.info info from tb_sql p where 1=1` + condition +  ` LIMIT ? , ?;`;
+        const statement1 = `select count(*) total from tb_sql where 1=1` + condition;
+        const [rst] = await connection.execute(statement1,[...argumentsList])
+        const [ data ] = await connection.execute(statement,[...argumentsList,offset,limit]);
         return {
             data,
             total : rst[0].total

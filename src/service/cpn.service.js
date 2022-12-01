@@ -59,16 +59,15 @@ class CpnService {
 
   async getCpns(cpnName,label,limit,offset){
     const argumentsList = []
-    let statement =  `select * from tb_cpn where 1=1`;
-    cpnName && (statement += ` and cpn_name like concat('%', ?, '%')`) && argumentsList.push(cpnName);
-    label && (statement += ` and label like concat('%', ?, '%')`) && argumentsList.push(label);
-    argumentsList.push(offset,limit)
-    statement += ` LIMIT ? , ?;`
+    let condition = ''
+    cpnName && (condition += ` and cpn_name like concat('%', ?, '%')`) && argumentsList.push(cpnName);
+    label && (condition += ` and label like concat('%', ?, '%')`) && argumentsList.push(label);
     
-    // 获取总数
-    const statement1 = `select count(*) total from tb_cpn`
-    const [rst] = await connection.execute(statement1)
-    const [ data ] = await connection.execute(statement,[...argumentsList]);
+    const statement =  `select * from tb_cpn where 1=1` +  condition + ` LIMIT ? , ?;`;
+    const statement1 = `select count(*) total from tb_cpn  where 1=1` + condition;
+ 
+    const [rst] = await connection.execute(statement1,[...argumentsList])
+    const [ data ] = await connection.execute(statement,[...argumentsList,offset,limit]);
     return {
       data,
       total : rst[0].total
