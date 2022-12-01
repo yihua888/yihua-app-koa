@@ -36,9 +36,9 @@ class algorithmController {
   }
 
   async getAlgorithms (ctx, next) {
-    const { algorithmName, algorithmType, limit, offset } = ctx.request.params
+    const { algorithmName, algorithmType, limit, offset } = ctx.request.query
     const rst = await service.getAlgorithms(algorithmName, algorithmType, limit, offset)
-    return rst
+    ctx.body = rst
   }
 
   async getAlgorithmById (ctx, next) {

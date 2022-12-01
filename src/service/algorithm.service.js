@@ -45,7 +45,7 @@ class AlgorithmService {
         const statement = `select a.name name,a.label label,a.info info,a.id id,atype.type_name type
         from tb_algorithm a
         left join tb_algorithm_type atype on atype.id=a.type_id` + condition + ` LIMIT ? , ?;`
-        const statement1 = `select count(*) from tb_algorithm a left join tb_algorithm_type atype on atype.id=a.type_id` + condition 
+        const statement1 = `select count(*) total from tb_algorithm a left join tb_algorithm_type atype on atype.id=a.type_id` + condition 
         const [rst] = await connection.execute(statement1 , [...argumentsList])
         const [data] = await connection.execute(statement, [...argumentsList , offset, limit])
         return {
@@ -55,7 +55,22 @@ class AlgorithmService {
     }
 
     async getAlgorithmById (algorithmId) {
-
+        const statement = `
+        select 
+        a.name name,a.label label,a.info info,a.id id,atype.type_name type,
+        (select IF(count(ac.id),JSON_ARRAYAGG(
+            JSON_OBJECT('filename',ac.filename,'url',ac.url)
+        ),NULL) from tb_algorithm_codes ac where ac.algorithm_id=a.id) codes
+        from tb_algorithm a
+        left join tb_algorithm_type atype on atype.id=a.type_id
+        where a.id = ?;
+        `
+        try {
+            const [rst] = await connection.execute(statement , [algorithmId])
+            return rst[0]
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 
