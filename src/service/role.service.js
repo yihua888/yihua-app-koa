@@ -32,7 +32,25 @@ class RoleSerice {
     left join tb_permission p on p.id = trp.permission_id
     where r.id = ?;`;
     const [rst] = await connection.execute(statement, [id]);
-    return rst;
+    return rst[0];
+  }
+
+  async updateRolePermission(roleId, permissionIds){
+    // 先删除
+    const statement = `delete from tb_role_permission where role_id = ?;`
+    await connection.execute(statement,[roleId])
+    if(permissionIds.length){
+      const str = []
+      const value = []
+      permissionIds.forEach(item=>{
+        str.push('(?,?)')
+        value.push(roleId,item)
+      })
+      // 再插入
+      const statement1 = `insert into tb_role_permission (role_id,permission_id) values${str.join(',')};`
+      await connection.execute(statement1,[...value])
+    }
+    return '编辑成功'
   }
 }
 

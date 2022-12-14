@@ -31,6 +31,12 @@ class RoleController {
     const rst = await roleService.getRoleById(roleId)
     ctx.body = rst
   }
+
+  async updateRolePermission(ctx,next){
+    const { roleId, permissionIds} = ctx.request.body
+    const rst = await roleService.updateRolePermission(roleId, permissionIds)
+    ctx.body = rst
+  }
 }
 
 module.exports = new RoleController()
