@@ -46,6 +46,12 @@ class UserController {
     );
     ctx.body = "修改成功";
   }
+
+  async removeUser(ctx,next){
+    const { userId } = ctx.request.params;
+    const rst = await userService.removeUser(userId);
+    ctx.body = rst;
+  }
 }
 
 module.exports = new UserController();

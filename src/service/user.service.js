@@ -78,8 +78,14 @@ class UserService {
 
   async updateUser(username, userId, roleId, avatarId) {
     const statement = ` UPDATE tb_user set user_name=?,role_id=?,avatar_id=?  where id =?;`;
-    const rst = connection.execute(statement, [username, roleId, avatarId , userId]);
+    const rst = await connection.execute(statement, [username, roleId, avatarId , userId]);
     return rst;
+  }
+
+  async removeUser(id){
+    const statement = `delete from tb_user where id = ?;`
+    const rst = await connection.execute(statement,[id])
+    return rst
   }
 }
 
