@@ -32,7 +32,7 @@ class UserController {
     if (Object.keys(files)[0]) {
       // 保存文件地址到avatar
       const avatarUrl =
-        "upload/avatar/" + files[Object.keys(files)[0]].newFilename;
+        "/upload/avatar/" + files[Object.keys(files)[0]].newFilename;
       const filename = files[Object.keys(files)[0]].originalFilename;
       if (!flag) await userService.upDateAvatar(avatarUrl, aId, filename);
       else await userService.createAvatar(avatarUrl, avatarId, filename);

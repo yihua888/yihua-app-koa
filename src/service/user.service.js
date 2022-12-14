@@ -77,11 +77,8 @@ class UserService {
   }
 
   async updateUser(username, userId, roleId, avatarId) {
-    console.log(username, userId, roleId, avatarId);
     const statement = ` UPDATE tb_user set user_name=?,role_id=?,avatar_id=?  where id =?;`;
     const rst = connection.execute(statement, [username, roleId, avatarId , userId]);
-    
-    ``
     return rst;
   }
 }

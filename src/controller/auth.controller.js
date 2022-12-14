@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const { PRIVATE_KEY } = require('../app/config')
+const userService = require('../service/user.service')
 
 class AuthController{
 
@@ -9,7 +10,9 @@ class AuthController{
       expiresIn: 60 * 60 * 24,
       algorithm: 'RS256'
     })
-    ctx.body = { id, username, token }
+    // 拿用户头像
+    const rst = await  userService.getUserById(id)
+    ctx.body = { id, username, token , ...rst}
   }
 
 }
